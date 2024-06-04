@@ -4,10 +4,9 @@ Created on Mon Apr 29 15:24:32 2024
 
 @author: Joel Tapia Salvador
 """
-import hashlib
 from typing import Optional, Tuple
 from copy import deepcopy
-from math import sin, floor
+from math import sin, floor, log
 
 SHIFT_ARRAY = [
     7,
@@ -659,7 +658,40 @@ def numerical_hash_to_hexadecimal_hash(numerical_hash: int) -> hex:
 
 
 def second_preimage(message: str, num_bits: int) -> Optional[Tuple[str, int]]:
-    pass
+    """
+
+
+    Parameters
+    ----------
+    message : str
+        DESCRIPTION.
+    num_bits : int
+        DESCRIPTION.
+
+    Returns
+    -------
+    Optional[Tuple[str, int]]
+        DESCRIPTION.
+
+    """
+    to_match_hash = uab_md5(message, num_bits)
+    iterations = 0
+    obtained_hash = None
+    new_message = ""
+    limit = 256**2
+    while True:
+        auxi = deepcopy(iterations)
+        iterations += 1
+        new_message = ""
+        for num_characters in range(floor(log(iterations, 256)) + 1):
+            new_message += chr(auxi % 256)
+            auxi = auxi // 256
+        obtained_hash = uab_md5(new_message, num_bits)
+        if to_match_hash == obtained_hash and message != new_message:
+            return new_message, iterations
+
+        if iterations > limit:
+            return None
 
 
 def collision(num_bits: int) -> Optional[Tuple[str, str, int]]:
