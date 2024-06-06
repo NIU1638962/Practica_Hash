@@ -98,7 +98,7 @@ def string_to_binary_string(string: str) -> str:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -142,7 +142,7 @@ def bit_padding(binary_string: str) -> str:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -189,7 +189,7 @@ def extension(binary_string: str, number: int) -> str:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -262,7 +262,7 @@ def functions(
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -354,7 +354,7 @@ def constant(radiant: int | float, base: int = 32) -> int:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -414,7 +414,7 @@ def circular_shift(number: int, shift_positions: int, base: int = 32) -> int:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -485,7 +485,7 @@ def number_to_binary_string(number: int, base=32, endian: str = "big") -> str:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recieved, it means a internal bug or unacounted
+        If this error is recieved, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
@@ -550,7 +550,7 @@ def uab_md5(message: str, num_bits: int) -> Optional[int]:
         with values not expected, normally due to calculations going wrong and
         it cannot continue calculating because the result would be incorrect.
 
-        If this error is recived, it means a internal bug or unacounted
+        If this error is recived, it means a internal bug or unaccounted
         behaviour occured, contact developer via bug report.
 
     Returns
