@@ -829,7 +829,7 @@ def collision(num_bits: int) -> Optional[Tuple[str, str, int]]:
     return None
 
 
-def graph_times(n_bits: int) -> DataFrame:
+def graph_times(num_bits: int) -> DataFrame:
     """
     Graphs the time of the collison algorithms.
 
@@ -850,7 +850,7 @@ def graph_times(n_bits: int) -> DataFrame:
     iterations_second_pre_image = []
     iterations_collision = []
 
-    for i in range(1, n_bits + 1):
+    for i in range(1, num_bits + 1):
         start = perf_counter()
         _, iterations = second_preimage("This is a benchmark", i)
         end = perf_counter()
@@ -865,7 +865,7 @@ def graph_times(n_bits: int) -> DataFrame:
 
     plt.figure(figsize=(10, 5))
     plt.plot(
-        range(1, n_bits + 1),
+        range(1, num_bits + 1),
         time_second_pre_image,
         label="Second Pre Image",
     )
@@ -876,7 +876,7 @@ def graph_times(n_bits: int) -> DataFrame:
 
     plt.figure(figsize=(10, 5))
     plt.plot(
-        range(1, n_bits + 1),
+        range(1, num_bits + 1),
         iterations_second_pre_image,
         label="Second Pre Image",
     )
@@ -886,14 +886,14 @@ def graph_times(n_bits: int) -> DataFrame:
     plt.show()
 
     plt.figure(figsize=(10, 5))
-    plt.plot(range(1, n_bits + 1), time_collision, label="Collisions")
+    plt.plot(range(1, num_bits + 1), time_collision, label="Collisions")
     plt.xlabel("Num Bits")
     plt.ylabel("Time of executions (seconds)")
     plt.legend()
     plt.show()
 
     plt.figure(figsize=(10, 5))
-    plt.plot(range(1, n_bits + 1), iterations_collision, label="Collisions")
+    plt.plot(range(1, num_bits + 1), iterations_collision, label="Collisions")
     plt.xlabel("Num Bits")
     plt.ylabel("Number iterations")
     plt.legend()
@@ -901,7 +901,7 @@ def graph_times(n_bits: int) -> DataFrame:
 
     table = DataFrame(
         {
-            "Num Bits": range(1, n_bits + 1),
+            "Num Bits": range(1, num_bits + 1),
             "Time Second Pre Image": time_second_pre_image,
             "Iterations Second Pre Image": iterations_second_pre_image,
             "Time Collisions": time_collision,
