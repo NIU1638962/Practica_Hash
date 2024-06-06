@@ -708,24 +708,41 @@ def uab_md5(message: str, num_bits: int) -> Optional[int]:
         return None
 
 
-def numerical_hash_to_hexadecimal_hash(numerical_hash: int) -> hex:
+def numerical_hash_to_hexadecimal_hash(numerical_hash: int) -> str:
     """
-
+    Transforsm the decimal representation of the hash into a hexadecimal string
+    representation.
 
     Parameters
     ----------
     numerical_hash : int
-        DESCRIPTION.
+        hash as a decimal integer.
 
     Raises
     ------
     TypeError
-        DESCRIPTION.
+        Paremeters given are not the proper Type.
 
     Returns
     -------
-    hex
-        DESCRIPTION.
+    string
+        Hexadeciaml string, string containing only the following values:
+            -0
+            -1
+            -2
+            -3
+            -4
+            -5
+            -6
+            -7
+            -8
+            -9
+            -A
+            -B
+            -C
+            -D
+            -E
+            -F
 
     """
     if not isinstance(numerical_hash, int):
@@ -792,22 +809,24 @@ def collision(num_bits: int) -> Optional[Tuple[str, str, int]]:
     """
     hash_dict = {}
     messages = []
+
+    iterations = 1
+
     for i in range(10):
         messages = (
             "".join(x)
             for x in product("".join(chr(i) for i in range(256)), repeat=i)
         )
 
-    iterations = 1
+        for message in messages:
+            hash_val = uab_md5(message, num_bits)
 
-    for message in messages:
-        hash_val = uab_md5(message, num_bits)
+            if hash_val in hash_dict:
+                return (hash_dict[hash_val], message, iterations)
 
-        if hash_val in hash_dict:
-            return (hash_dict[hash_val], message, iterations)
+            hash_dict[hash_val] = message
+            iterations += 1
 
-        hash_dict[hash_val] = message
-        iterations += 1
     return None
 
 
