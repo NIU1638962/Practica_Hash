@@ -232,7 +232,7 @@ def functions(
     Parameters
     ----------
     form : str
-        Form of the funtion applied.
+        Form of the function applied.
         - F: (X and Y) or (not X & Z)
         - G: (X and Z) or (Y & not Z)
         - H: X xor Y xor Z
