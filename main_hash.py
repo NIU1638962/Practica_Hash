@@ -808,7 +808,6 @@ def collision(num_bits: int) -> Optional[Tuple[str, str, int]]:
 
     """
     hash_dict = {}
-    messages = []
 
     iterations = 1
 
